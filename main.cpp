@@ -79,12 +79,12 @@
 
 		Copy and paste a paragraph of text to be analyzed, followed by ^z (PC) or ^d (Mac): 
 		Ma per arrivare a un agreement bisogna essere in due. E dato che il governo intende 
-		resistere sui numeri della manovra, è necessario offrire garanzie all’Europa e ai 
-		mercati. Perciò sono stati stabiliti due capisaldi: uno tecnico, l’altro più politico. 
-		La riduzione strutturale del debito viene fissato come un «obiettivo strategico», 
-		non a caso sottolineato da Di Maio dopo il vertice. La linea dell’esecutivo è che 
-		per far ripartire l’Italia sia necessario «cambiare approccio» con una manovra 
-		espansiva «dopo anni di cure rigoriste senza risultati», ma s
+		resistere sui numeri della manovra, Ã¨ necessario offrire garanzie allâ€™Europa e ai 
+		mercati. PerciÃ² sono stati stabiliti due capisaldi: uno tecnico, lâ€™altro piÃ¹ politico. 
+		La riduzione strutturale del debito viene fissato come un Â«obiettivo strategicoÂ», 
+		non a caso sottolineato da Di Maio dopo il vertice. La linea dellâ€™esecutivo Ã¨ che 
+		per far ripartire lâ€™Italia sia necessario Â«cambiare approccioÂ» con una manovra 
+		espansiva Â«dopo anni di cure rigoriste senza risultatiÂ», ma s
 
 		A:51 B:5 C:20 D:15 E:55 F:4 G:6 H:2 I:54 J:0 K:0 L:22 M:10 N:29 O:39 P:13 Q:0 R:37 S:28 T:31 U:15 V:9 W:0 X:0 Y:0 Z:3 
 
@@ -123,7 +123,9 @@
  
  */
 
-// Your code should go here
-// ...
-// 
+int main(){
+
+	
+	return 0; 
+}
 
