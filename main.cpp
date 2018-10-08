@@ -141,6 +141,6 @@ int main(){
 }
 
 void extractLetters(string* fileName, int* numLetters){
-	
+	ifstream extract;
 	
 }
