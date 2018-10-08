@@ -122,10 +122,25 @@
 		Language is Italian
  
  */
+#include <iostream>
+#include<string>
+#include<fstream>
+#include<iomanip>
+using namespace std;
+
+void extractLetters(string*, int* );
 
 int main(){
-
+	const int NUM_LANGUAGES = 8;																	  //The number of languages. 
+	const int NUM_LETTERS = 26;																		  //The number of letters in the program.
+	string languages[] = {"Engl",  "Finn",  "Fren",  "Germ",  "Hung",  "Ital",  "Port",  "Span"};     //The eight languages that this program will test for. (Note: Also used to open the files)
+	int numLetters[NUM_LANGUAGES] [NUM_LETTERS]; 													  //Two dimenstional array that holds the language and the letter
+	
 	
 	return 0; 
 }
 
+void extractLetters(string* fileName, int* numLetters){
+	
+	
+}
