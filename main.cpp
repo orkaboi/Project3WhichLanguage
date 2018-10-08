@@ -146,6 +146,13 @@ int main(){
 	return 0; 
 }
 
+/********************************************************************
+ * This function is used to open each file and extract the characters
+ * one by one. Inside of this funciton it also calls the countLetter()
+ * function to count those characters into a two dimensional array.
+ *
+ ********************************************************************/
+ 
 void extractLetters(string* fileName, int numLetters[][NUM_LANGUAGES]){
 /*
 	ifstream extract;
@@ -157,6 +164,7 @@ void extractLetters(string* fileName, int numLetters[][NUM_LANGUAGES]){
 	}
 	*/
 }
+
 
 void countLetters(int numLetters[][NUM_LANGUAGES]){
 	
