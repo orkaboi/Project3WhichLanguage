@@ -128,19 +128,42 @@
 #include<iomanip>
 using namespace std;
 
-void extractLetters(string*, int* );
+const int NUM_LANGUAGES = 8;              //The number of languages. 
+const int NUM_LETTERS = 26;               //The number of letters in the program.
+	  
+void extractLetters(string[], int[] );
+void countLetters(int[][NUM_LANGUAGES]);
+
 
 int main(){
-	const int NUM_LANGUAGES = 8;                                                                      //The number of languages. 
-	const int NUM_LETTERS = 26;	                                                                      //The number of letters in the program.
+	                                                                    
 	string languages[] = {"Engl",  "Finn",  "Fren",  "Germ",  "Hung",  "Ital",  "Port",  "Span"};     //The eight languages that this program will test for. (Note: Also used to open the files)
-	int numLetters[NUM_LANGUAGES] [NUM_LETTERS];                                                      //Two dimenstional array that holds the language and the letter
+	int numLetters[NUM_LETTERS] [NUM_LANGUAGES];                                                      //Two dimenstional array that holds the language and the letter
+	
+	
 	
 	
 	return 0; 
 }
 
-void extractLetters(string* fileName, int* numLetters){
+void extractLetters(string* fileName, int numLetters[][NUM_LANGUAGES]){
+/*
 	ifstream extract;
 	
+	
+	if(!extract.is_open()){
+		cout << "File could not open. Exiting...\n";
+		exit(-1);
+	}
+	*/
+}
+
+void countLetters(int numLetters[][NUM_LANGUAGES]){
+	
+	//This nested for loop expression initializes all of the contents of numLetters to 0
+	for(int row = 0; row < (NUM_LANGUAGES-1); row ++){
+		for(int col = 0; col < (NUM_LETTERS-1); col++){
+			numLetters[col][row] = 0;
+		}
+	}
 }
