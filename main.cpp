@@ -90,34 +90,34 @@
 
 		Letter frequency order:
 			 Engl  Finn  Fren  Germ  Hung  Ital  Port  Span  User
-					E     A     E     E     E     E     E     E     E
-					T     I     S     N     A     A     A     A     I
-					O     N     A     I     T     O     O     O     A
-					A     T     T     R     N     I     S     S     O
-					H     E     R     S     L     N     R     R     R
-					N     S     N     T     S     T     N     N     T
-					S     L     I     A     M     R     M     L     N
-					I     U     U     H     K     S     I     I     S
-					R     O     O     D     O     L     U     T     L
-					D     K     L     U     G     C     T     D     C
-					L     M     M     C     I     U     D     U     D
-					U     H     C     L     R     D     C     C     U
-					M     R     D     M     Z     M     L     M     P
-					C     V     P     G     D     P     P     P     M
-					W     Y     V     O     Y     H     H     B     V
-					F     J     F     B     B     G     V     H     G
-					Y     P     B     W     H     V     B     G     B
-					B     D     H     F     V     B     F     V     F
-					G     C     Q     K     J     F     G     Y     Z
-					P     B     G     Z     C     Q     Q     Q     H
-					K     F     J     V     U     Z     Z     F     J
-					V     G     Z     P     F     Y     X     J     K
-					Q     W     X     Y     P     W     J     Z     Q
-					X     Q     Y     J     W     K     W     X     W
-					J     X     W     X     Q     X     Y     W     X
-					Z     Z     K     Q     X     J     K     K     Y
+				E     A     E     E     E     E     E     E     E
+				T     I     S     N     A     A     A     A     I
+				O     N     A     I     T     O     O     O     A
+				A     T     T     R     N     I     S     S     O
+				H     E     R     S     L     N     R     R     R
+				N     S     N     T     S     T     N     N     T
+				S     L     I     A     M     R     M     L     N
+				I     U     U     H     K     S     I     I     S
+				R     O     O     D     O     L     U     T     L
+				D     K     L     U     G     C     T     D     C
+				L     M     M     C     I     U     D     U     D
+				U     H     C     L     R     D     C     C     U
+				M     R     D     M     Z     M     L     M     P
+				C     V     P     G     D     P     P     P     M
+				W     Y     V     O     Y     H     H     B     V
+				F     J     F     B     B     G     V     H     G
+				Y     P     B     W     H     V     B     G     B
+				B     D     H     F     V     B     F     V     F
+				G     C     Q     K     J     F     G     Y     Z
+				P     B     G     Z     C     Q     Q     Q     H
+				K     F     J     V     U     Z     Z     F     J
+				V     G     Z     P     F     Y     X     J     K
+				Q     W     X     Y     P     W     J     Z     Q
+				X     Q     Y     J     W     K     W     X     W
+				J     X     W     X     Q     X     Y     W     X
+				Z     Z     K     Q     X     J     K     K     Y
 
-				 60    78    16    50    94    10    18    13  <--- Difference (This line is not part of expected output, but is helpful!)
+				60    78    16    50    94    10    18    13  <--- Difference (This line is not part of expected output, but is helpful!)
 
 		Language is Italian
  
