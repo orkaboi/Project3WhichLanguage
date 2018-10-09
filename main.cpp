@@ -50,7 +50,7 @@
 
 		Letter frequency order:
 			 Engl  Finn  Fren  Germ  Hung  Ital  Port  Span
-					E     A     E     E     E     E     E     E
+		    	E     A     E     E     E     E     E     E
 					T     I     S     N     A     A     A     A
 					O     N     A     I     T     O     O     O
 					A     T     T     R     N     I     S     S
@@ -184,7 +184,7 @@ void extractLetters(string fileName[], int numLetters[][NUM_LANGUAGES]){
 	   }
 	
 	   while(extract >> letter){
-	      	
+	      	letters++;
        }
   }
 }
@@ -194,7 +194,11 @@ void countLetters(int numLetters[][NUM_LANGUAGES]){
 	
 
 }
-
+/****************************************************
+* This function displays the contents of numLetters 
+* with the language headers
+*
+*****************************************************/
 void disPlayLetters(int[][NUM_LANGUAGES]){
 	
 	
