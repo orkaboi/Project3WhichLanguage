@@ -124,8 +124,10 @@
  */
 #include <iostream>
 #include<string>
+#include<cctype>
 #include<fstream>
 #include<iomanip>
+#include<cstdlib>
 using namespace std;
 
 const int NUM_LANGUAGES = 8;              //The number of languages. 
@@ -133,11 +135,15 @@ const int NUM_LETTERS = 26;               //The number of letters in the program
 	  
 void extractLetters(string[], int[] );
 void countLetters(int[][NUM_LANGUAGES]);
+void disPlayLetters(int[][NUM_LANGUAGES]);
 
 
 int main(){
 	                                                                    
 	string languages[] = {"Engl",  "Finn",  "Fren",  "Germ",  "Hung",  "Ital",  "Port",  "Span"};     //The eight languages that this program will test for. (Note: Also used to open the files)
+	string fileNames[] = {"MacbethEnglish.txt", "MacbethFinnish.txt", "MacbethFrench.txt", 			 //The names of the files containing all the translations of Macbeth
+				          "MacbethGerman.txt","MacbethHungarian.txt", "MacbethItalian.txt", 
+						  "MacbethPortuguese.txt", "MacbethSpanish.txt"};
 	int numLetters[NUM_LETTERS] [NUM_LANGUAGES];                                                      //Two dimenstional array that holds the language and the letter
 	
 	
@@ -153,25 +159,43 @@ int main(){
  *
  ********************************************************************/
  
-void extractLetters(string* fileName, int numLetters[][NUM_LANGUAGES]){
-/*
-	ifstream extract;
+void extractLetters(string fileName[], int numLetters[][NUM_LANGUAGES]){
 	
+	char letter = ' ';               //Holds each letter that is extracted
+	ifstream extract;                //The name of the stream of data from each file
 	
-	if(!extract.is_open()){
-		cout << "File could not open. Exiting...\n";
-		exit(-1);
-	}
-	*/
-}
-
-
-void countLetters(int numLetters[][NUM_LANGUAGES]){
-	
-	//This nested for loop expression initializes all of the contents of numLetters to 0
+    //This nested for loop expression initializes all of the contents of numLetters to 0
 	for(int row = 0; row < (NUM_LANGUAGES-1); row ++){
 		for(int col = 0; col < (NUM_LETTERS-1); col++){
 			numLetters[col][row] = 0;
 		}
 	}
+	
+	//This loop is used to count the characters in each file.
+	for(int langIndexVal = 0; langIndexVal < (NUM_LANGUAGES-1); langIndexVal++ ){
+	
+	   //Open the file
+	   extract.open(fileName[langIndexVal].c_str());
+	
+	   //Check if the file opened correctly
+	   if(!extract.is_open()){
+		   cout << "File could not open. Exiting...\n";
+		   exit(-1);
+	   }
+	
+	   while(extract >> letter){
+	      	
+       }
+  }
+}
+
+
+void countLetters(int numLetters[][NUM_LANGUAGES]){
+	
+
+}
+
+void disPlayLetters(int[][NUM_LANGUAGES]){
+	
+	
 }
