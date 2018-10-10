@@ -134,8 +134,8 @@ const int NUM_LANGUAGES = 8;              //The number of languages.
 const int NUM_LETTERS = 26;               //The number of letters in the program.
 	  
 void extractLetters(string[], int[] );
-void countLetters(int[][NUM_LANGUAGES]);
-void disPlayLetters(int[][NUM_LANGUAGES]);
+void countLetters(int[][NUM_LANGUAGES], char, int);
+void displayLetterCount(int[][NUM_LANGUAGES]);
 
 
 int main(){
@@ -146,8 +146,22 @@ int main(){
 						  "MacbethPortuguese.txt", "MacbethSpanish.txt"};
 	int numLetters[NUM_LETTERS] [NUM_LANGUAGES];                                                      //Two dimenstional array that holds the language and the letter
 	
+	//This nested for loop expression initializes all of the contents of numLetters to 0
+	for(int row = 0; row < (NUM_LANGUAGES-1); row ++){
+		for(int col = 0; col < (NUM_LETTERS-1); col++){
+			numLetters[col][row] = 0;
+		}
+	}
 	
+	//FIX THIS. this is a test initialization of numLetters
+	for(int row = 0; row < (NUM_LANGUAGES-1); row ++){
+		for(int col = 0; col < (NUM_LETTERS-1); col++){
+			numLetters[col][row] = row;
+		
+		}
+	}
 	
+	displayLetterCount(numLetters);
 	
 	return 0; 
 }
@@ -158,18 +172,11 @@ int main(){
  * function to count those characters into a two dimensional array.
  *
  ********************************************************************/
- 
+
 void extractLetters(string fileName[], int numLetters[][NUM_LANGUAGES]){
 	
 	char letter = ' ';               //Holds each letter that is extracted
 	ifstream extract;                //The name of the stream of data from each file
-	
-    //This nested for loop expression initializes all of the contents of numLetters to 0
-	for(int row = 0; row < (NUM_LANGUAGES-1); row ++){
-		for(int col = 0; col < (NUM_LETTERS-1); col++){
-			numLetters[col][row] = 0;
-		}
-	}
 	
 	//This loop is used to count the characters in each file.
 	for(int langIndexVal = 0; langIndexVal < (NUM_LANGUAGES-1); langIndexVal++ ){
@@ -182,24 +189,40 @@ void extractLetters(string fileName[], int numLetters[][NUM_LANGUAGES]){
 		   cout << "File could not open. Exiting...\n";
 		   exit(-1);
 	   }
-	
+		
+       //extract the letters and count them from each file while there are still characters extracting
 	   while(extract >> letter){
-	      	
+	      	countLetters(numLetters, letter, langIndexVal);
        }
   }
 }
 
-
-void countLetters(int numLetters[][NUM_LANGUAGES]){
+/*********************************************************
+* This function is called from withing extractLetters()
+* it accepts the 2D array as a parameter along with the 
+* letter from the stream and the current column. Column 
+* must be passed because because each language has every 
+* letter in its column.
+***********************************************************/
+void countLetters(int numLetters[][NUM_LANGUAGES], char letter, int column){
 	
 
 }
+
 /****************************************************
 * This function displays the contents of numLetters 
 * with the language headers
 *
 *****************************************************/
-void disPlayLetters(int[][NUM_LANGUAGES]){
+void displayLetterCount(int numLetters[][NUM_LANGUAGES]){
 	
 	
+	//displays the letter and the number of letters counted for each language
+	for(int col = 0; col < (NUM_LETTERS-1); col ++){
+		cout << (char)(col+'A') << ": ";
+		for(int row = 0; row < (NUM_LANGUAGES-1); row++){
+			cout << setw(5) << numLetters[col][row];
+		}
+		cout << endl;
+	}
 }
