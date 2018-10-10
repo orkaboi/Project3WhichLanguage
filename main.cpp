@@ -131,7 +131,7 @@
 using namespace std;
 
 const int NUM_LANGUAGES = 8;              //The number of languages. 
-const int NUM_LETTERS = 26;               //The number of letters in the program.
+const int NUM_LETTERS = 26;               //The number of letters in the english alphabet.
 	  
 void extractLetters(string[], int[] );
 void countLetters(int[][NUM_LANGUAGES], char, int);
@@ -140,12 +140,14 @@ void displayLetterCount(int[][NUM_LANGUAGES]);
 
 int main(){
 	                                                                    
-	string languages[] = {"Engl",  "Finn",  "Fren",  "Germ",  "Hung",  "Ital",  "Port",  "Span"};     //The eight languages that this program will test for. (Note: Also used to open the files)
-	string fileNames[] = {"MacbethEnglish.txt", "MacbethFinnish.txt", "MacbethFrench.txt", 			 //The names of the files containing all the translations of Macbeth
+	string languages[] = {"Engl",  "Finn",  "Fren",  "Germ",  "Hung",  "Ital",  "Port",  "Span"};     //The eight languages that this program will test for. 
+	const string fileNames[] = {"MacbethEnglish.txt", "MacbethFinnish.txt", "MacbethFrench.txt", 			 //The names of the files containing all the translations of Macbeth
 				          "MacbethGerman.txt","MacbethHungarian.txt", "MacbethItalian.txt", 
 						  "MacbethPortuguese.txt", "MacbethSpanish.txt"};
 	int numLetters[NUM_LETTERS] [NUM_LANGUAGES];                                                      //Two dimenstional array that holds the language and the letter
 	
+	cout << fileNames[0].c_str();
+	/*
 	//This nested for loop expression initializes all of the contents of numLetters to 0
 	for(int row = 0; row < (NUM_LANGUAGES-1); row ++){
 		for(int col = 0; col < (NUM_LETTERS-1); col++){
@@ -162,7 +164,7 @@ int main(){
 	}
 	
 	displayLetterCount(numLetters);
-	
+	*/
 	return 0; 
 }
 
