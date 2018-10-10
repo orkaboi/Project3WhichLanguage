@@ -141,20 +141,19 @@ void displayLetterCount(int[][NUM_LANGUAGES]);
 int main(){
 	                                                                    
 	string languages[] = {"Engl",  "Finn",  "Fren",  "Germ",  "Hung",  "Ital",  "Port",  "Span"};     //The eight languages that this program will test for. 
-	const string fileNames[] = {"MacbethEnglish.txt", "MacbethFinnish.txt", "MacbethFrench.txt", 			 //The names of the files containing all the translations of Macbeth
+	const string fileNames[] = {"MacbethEnglish.txt", "MacbethFinnish.txt", "MacbethFrench.txt",      //The names of the files containing all the translations of Macbeth
 				          "MacbethGerman.txt","MacbethHungarian.txt", "MacbethItalian.txt", 
 						  "MacbethPortuguese.txt", "MacbethSpanish.txt"};
 	int numLetters[NUM_LETTERS] [NUM_LANGUAGES];                                                      //Two dimenstional array that holds the language and the letter
 	
-	cout << fileNames[0].c_str();
-	/*
+	
 	//This nested for loop expression initializes all of the contents of numLetters to 0
 	for(int row = 0; row < (NUM_LANGUAGES-1); row ++){
 		for(int col = 0; col < (NUM_LETTERS-1); col++){
 			numLetters[col][row] = 0;
 		}
 	}
-	
+	/*
 	//FIX THIS. this is a test initialization of numLetters
 	for(int row = 0; row < (NUM_LANGUAGES-1); row ++){
 		for(int col = 0; col < (NUM_LETTERS-1); col++){
