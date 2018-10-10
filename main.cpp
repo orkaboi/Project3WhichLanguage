@@ -51,31 +51,31 @@
 		Letter frequency order:
 			 Engl  Finn  Fren  Germ  Hung  Ital  Port  Span
 		    	E     A     E     E     E     E     E     E
-					T     I     S     N     A     A     A     A
-					O     N     A     I     T     O     O     O
-					A     T     T     R     N     I     S     S
-					H     E     R     S     L     N     R     R
-					N     S     N     T     S     T     N     N
-					S     L     I     A     M     R     M     L
-					I     U     U     H     K     S     I     I
-					R     O     O     D     O     L     U     T
-					D     K     L     U     G     C     T     D
-					L     M     M     C     I     U     D     U
-					U     H     C     L     R     D     C     C
-					M     R     D     M     Z     M     L     M
-					C     V     P     G     D     P     P     P
-					W     Y     V     O     Y     H     H     B
-					F     J     F     B     B     G     V     H
-					Y     P     B     W     H     V     B     G
-					B     D     H     F     V     B     F     V
-					G     C     Q     K     J     F     G     Y
-					P     B     G     Z     C     Q     Q     Q
-					K     F     J     V     U     Z     Z     F
-					V     G     Z     P     F     Y     X     J
-					Q     W     X     Y     P     W     J     Z
-					X     Q     Y     J     W     K     W     X
-					J     X     W     X     Q     X     Y     W
-					Z     Z     K     Q     X     J     K     K
+				T     I     S     N     A     A     A     A
+				O     N     A     I     T     O     O     O
+				A     T     T     R     N     I     S     S
+				H     E     R     S     L     N     R     R
+				N     S     N     T     S     T     N     N
+				S     L     I     A     M     R     M     L
+				I     U     U     H     K     S     I     I
+				R     O     O     D     O     L     U     T
+				D     K     L     U     G     C     T     D
+				L     M     M     C     I     U     D     U
+				U     H     C     L     R     D     C     C
+				M     R     D     M     Z     M     L     M
+				C     V     P     G     D     P     P     P
+				W     Y     V     O     Y     H     H     B
+				F     J     F     B     B     G     V     H
+				Y     P     B     W     H     V     B     G
+				B     D     H     F     V     B     F     V
+				G     C     Q     K     J     F     G     Y
+				P     B     G     Z     C     Q     Q     Q
+				K     F     J     V     U     Z     Z     F
+				V     G     Z     P     F     Y     X     J
+				Q     W     X     Y     P     W     J     Z
+				X     Q     Y     J     W     K     W     X
+				J     X     W     X     Q     X     Y     W
+				Z     Z     K     Q     X     J     K     K
 
 		Copy and paste a paragraph of text to be analyzed, followed by ^z (PC) or ^d (Mac): 
 		Ma per arrivare a un agreement bisogna essere in due. E dato che il governo intende 
@@ -175,7 +175,7 @@ int main(){
 
 void extractLetters(string fileName[], int numLetters[][NUM_LANGUAGES]){
 	
-	char letter = ' ';               //Holds each letter that is extracted
+	char letter = ' ';               //Temporarily holds each letter when it is extracted
 	ifstream extract;                //The name of the stream of data from each file
 	
 	//This loop is used to count the characters in each file.
@@ -194,6 +194,8 @@ void extractLetters(string fileName[], int numLetters[][NUM_LANGUAGES]){
 	   while(extract >> letter){
 	      	countLetters(numLetters, letter, langIndexVal);
        }
+       
+       extract.close();
   }
 }
 
