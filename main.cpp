@@ -184,7 +184,7 @@ void extractLetters(string fileName[], int numLetters[][NUM_LANGUAGES]){
 	   }
 	
 	   while(extract >> letter){
-	      	letters++;
+	      	
        }
   }
 }
