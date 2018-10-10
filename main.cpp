@@ -179,7 +179,7 @@ void extractLetters(string fileName[], int numLetters[][NUM_LANGUAGES]){
 	char letter = ' ';               //Temporarily holds each letter when it is extracted
 	ifstream extract;                //The name of the stream of data from each file
 	
-	//This loop is used to iterate each language file name. For each fileName it will open the file, count the characters, and close the file
+	//This loop is used to iterate each language file name. For each fileName it will open the file, count the characters, and close the file stream
 	for(int langIndexVal = 0; langIndexVal < (NUM_LANGUAGES-1); langIndexVal++ ){
 	
 	   //Open the file stream 
