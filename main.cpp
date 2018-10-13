@@ -154,7 +154,7 @@ int main(){
 		}
 	}
 	/*
-	//FIX THIS. this is a test initialization of numLetters
+	//FIX THIS. this is a test initialization of numLetters for troubleshooting purposes
 	for(int row = 0; row < (NUM_LANGUAGES-1); row ++){
 		for(int col = 0; col < (NUM_LETTERS-1); col++){
 			numLetters[col][row] = row;
