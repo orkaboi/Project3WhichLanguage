@@ -135,7 +135,7 @@ const int NUM_LETTERS = 26;               //The number of letters in the english
 	  
 void extractLetters(string[], int[] );
 void countLetters(int[][NUM_LANGUAGES], char, int);
-void displayLetterCount(int[][NUM_LANGUAGES]);
+void displayLetterCount(int[][NUM_LANGUAGES], string[]);
 
 
 int main(){
@@ -148,22 +148,17 @@ int main(){
 	
 	
 	//This nested for loop expression initializes all of the contents of numLetters to 0
-	for(int col = 0; col < (NUM_LANGUAGES-1); col ++){
-		for(int row = 0; row < (NUM_LETTERS-1); row++){
-			numLetters[row][col] = 0;
+	for(int col = 0; col < (NUM_LANGUAGES); col++){
+		for(int row = 0; row < (NUM_LETTERS); row ++){
+		numLetters[row][col] = 0;
 		}
 	}
 	
+	cout << "Program 3: Which Language" << endl; 
+	cout << endl; 
+	cout << "Letter Frequency Counts:" <<endl; 
 	
-	//FIX THIS. this is a test initialization of numLetters for troubleshooting purposes
-	for(int col = 0; col < (NUM_LANGUAGES-1); col ++){
-		for(int row = 0; row < (NUM_LETTERS-1); row++){
-			numLetters[row][col] = col;
-		
-		}
-	}
-	
-	displayLetterCount(numLetters);
+	displayLetterCount(numLetters, languages);
 	
 	return 0; 
 }
@@ -181,7 +176,7 @@ void extractLetters(string fileName[], int numLetters[][NUM_LANGUAGES]){
 	ifstream extract;                //The name of the stream of data from each file
 	
 	//This loop is used to iterate each language file name. For each fileName it will open the file, count the characters, and close the file stream
-	for(int langIndexVal = 0; langIndexVal < (NUM_LANGUAGES-1); langIndexVal++ ){
+	for(int langIndexVal = 0; langIndexVal < (NUM_LANGUAGES); langIndexVal++ ){
 	
 	   //Open the file stream 
 	   extract.open(fileName[langIndexVal].c_str());
@@ -221,14 +216,22 @@ void countLetters(int numLetters[][NUM_LANGUAGES], char letter, int column){
 * with the language headers
 *
 *****************************************************/
-void displayLetterCount(int numLetters[][NUM_LANGUAGES]){
+void displayLetterCount(int numLetters[][NUM_LANGUAGES], string languages[]){
 	
+	//The first language header is displayed first to get the width right
+	cout << setw(9) << languages[0];
+	
+	//Each header is displayed
+	for(int i = 1;i < NUM_LANGUAGES; i++){
+		cout << setw(6) << languages[i];
+	}
+	cout << endl;
 	
 	//displays the letter and the number of letters counted for each language
-	for(int col = 0; col < (NUM_LETTERS-1); col ++){
-		cout << (char)(col+'A') << ": ";
-		for(int row = 0; row < (NUM_LANGUAGES-1); row++){
-			cout << setw(5) << numLetters[col][row];
+	for(int row = 0; row < (NUM_LETTERS); row ++){
+		cout << (char)(row+'A') << ": ";
+		for(int col = 0; col < (NUM_LANGUAGES); col++){
+			cout << setw(6) << numLetters[row][col];
 		}
 		cout << endl;
 	}
