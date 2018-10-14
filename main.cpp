@@ -210,8 +210,10 @@ void extractLetters(string fileName[], int numLetters[][NUM_LANGUAGES]){
 * letter in its column.
 ***********************************************************/
 void countLetters(int numLetters[][NUM_LANGUAGES], char letter, int column){
-	
-
+	if(isalpha(letter)){
+		letter = toupper(letter);
+		numLetters[letter-'A'][column]++;
+	}
 }
 
 /****************************************************
