@@ -20,7 +20,7 @@
 		Program 3: Which Language
 
 		Letter Frequency Counts:
-				 Engl  Finn  Fren  Germ  Hung  Ital  Port  Span
+			 Engl  Finn  Fren  Germ  Hung  Ital  Port  Span
 		A:   6018  9416  6544  5068  7541  8935  9939 10052
 		B:   1464   448  1081  2060  1746  1221  1173  1387
 		C:   2144   636  3028  3126  1014  3865  2855  3222
@@ -133,7 +133,7 @@ using namespace std;
 const int NUM_LANGUAGES = 8;              //The number of languages. 
 const int NUM_LETTERS = 26;               //The number of letters in the english alphabet.
 	  
-void extractLetters(string[], int[] );
+void extractLetters(string[], int[][NUM_LANGUAGES] );
 void countLetters(int[][NUM_LANGUAGES], char, int);
 void displayLetterCount(int[][NUM_LANGUAGES], string[]);
 
@@ -141,7 +141,7 @@ void displayLetterCount(int[][NUM_LANGUAGES], string[]);
 int main(){
 	                                                                    
 	string languages[] = {"Engl",  "Finn",  "Fren",  "Germ",  "Hung",  "Ital",  "Port",  "Span"};     //The eight languages that this program will test for. 
-	const string fileNames[] = {"MacbethEnglish.txt", "MacbethFinnish.txt", "MacbethFrench.txt",      //The names of the files containing all the translations of Macbeth
+	string fileNames[] = {"MacbethEnglish.txt", "MacbethFinnish.txt", "MacbethFrench.txt",      //The names of the files containing all the translations of Macbeth
 				          "MacbethGerman.txt","MacbethHungarian.txt", "MacbethItalian.txt", 
 						  "MacbethPortuguese.txt", "MacbethSpanish.txt"};
 	int numLetters[NUM_LETTERS] [NUM_LANGUAGES];                                                      //Two dimenstional array that holds the language and the letter
@@ -153,7 +153,7 @@ int main(){
 		numLetters[row][col] = 0;
 		}
 	}
-	
+	extractLetters(fileNames, numLetters);
 	cout << "Program 3: Which Language" << endl; 
 	cout << endl; 
 	cout << "Letter Frequency Counts:" <<endl; 
