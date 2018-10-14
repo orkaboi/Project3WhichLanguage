@@ -148,22 +148,23 @@ int main(){
 	
 	
 	//This nested for loop expression initializes all of the contents of numLetters to 0
-	for(int row = 0; row < (NUM_LANGUAGES-1); row ++){
-		for(int col = 0; col < (NUM_LETTERS-1); col++){
-			numLetters[col][row] = 0;
+	for(int col = 0; col < (NUM_LANGUAGES-1); col ++){
+		for(int row = 0; row < (NUM_LETTERS-1); row++){
+			numLetters[row][col] = 0;
 		}
 	}
-	/*
+	
+	
 	//FIX THIS. this is a test initialization of numLetters for troubleshooting purposes
-	for(int row = 0; row < (NUM_LANGUAGES-1); row ++){
-		for(int col = 0; col < (NUM_LETTERS-1); col++){
-			numLetters[col][row] = row;
+	for(int col = 0; col < (NUM_LANGUAGES-1); col ++){
+		for(int row = 0; row < (NUM_LETTERS-1); row++){
+			numLetters[row][col] = col;
 		
 		}
 	}
 	
 	displayLetterCount(numLetters);
-	*/
+	
 	return 0; 
 }
 
