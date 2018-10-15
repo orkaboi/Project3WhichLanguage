@@ -133,10 +133,12 @@ using namespace std;
 const int NUM_LANGUAGES = 8;                                           //The number of languages being tested
 const int NUM_LANGUAGES_WITH_USER_INPUT = NUM_LANGUAGES + 1;           //The number of languages plus one (the one is used for the user input) 
 const int NUM_LETTERS = 26;                                            //The number of letters in the english alphabet.
-	  
+
+//NOTE: descriptions are above function names in definitions. 	  
 void extractLetters(string[], int[][NUM_LANGUAGES] );
 void countLetters(int[][NUM_LANGUAGES], char, int);
 void displayLetterCount(int[][NUM_LANGUAGES], string[]);
+void orderLetters(int[][NUM_LANGUAGES]);
 
 
 int main(){
@@ -147,6 +149,7 @@ int main(){
 						  "MacbethPortuguese.txt", "MacbethSpanish.txt"};
 	int numLetters[NUM_LETTERS] [NUM_LANGUAGES];                                                      //Two dimenstional array that holds the language and the letter
 	int userMenuChoice;                                                                               //Holds the user's choice for the start menu
+	//int orderedLetters[NUM_LETTERS][NUM_LANGUAGES];                                                   //Holds the array of sorted letters based on character counts. It is an int because the letter is determined by the index of numLetters
 	
 	
 	//This nested for loop expression initializes all of the contents of numLetters to 0
@@ -275,4 +278,26 @@ void displayLetterCount(int numLetters[][NUM_LANGUAGES], string languages[]){
 		}
 		cout << endl;
 	}
+}
+
+/*********************************************************
+* This function examines the counts of the letters and
+* orders them based on frequency. 
+*********************************************************/
+void orderLetters(int numLetters[][NUM_LANGUAGES]){
+	int orderedLetters[num_Letters];          //This array is temporarily used to store the order of the letters before it is copied back into the proprt column of numLetters array
+    
+    //Iterates through this sorting process for each letter. 
+    for(int col = 0; col < NUM_LANGUAGES; col++){
+    	int maxCount = numLetters[0][col];    //Set the Largest count to the first element.
+	    int maxIndex = 0;                     //Temporarily holds the value of the index of the most common letter (initialized to the first index
+	    
+	    //for each pass of this loop one letter will be put into place. Therefore the loop must iterate NUM_LETTERS times.
+	    for(int numLettersSorted = 0; numLettersSorted < NUM_LETTERS; numLettersSorted++){
+		
+	    }
+	    
+	}
+    
+
 }
