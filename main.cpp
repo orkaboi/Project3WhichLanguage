@@ -145,6 +145,7 @@ int main(){
 				          "MacbethGerman.txt","MacbethHungarian.txt", "MacbethItalian.txt", 
 						  "MacbethPortuguese.txt", "MacbethSpanish.txt"};
 	int numLetters[NUM_LETTERS] [NUM_LANGUAGES];                                                      //Two dimenstional array that holds the language and the letter
+	int userMenuChoice;
 	
 	
 	//This nested for loop expression initializes all of the contents of numLetters to 0
@@ -153,12 +154,42 @@ int main(){
 		numLetters[row][col] = 0;
 		}
 	}
-	extractLetters(fileNames, numLetters);
+	
 	cout << "Program 3: Which Language" << endl; 
 	cout << endl; 
+	
+	cout << "Select from the following stages of output to display:\n";
+	cout << "   " << "1. Letter frequency counts\n";
+	cout << "   " << "2. Letter frequency order\n"; 
+	cout << "   " << "3. Get user input and display frequency counts\n";
+	cout << "   " << "4. Get user input, display frequency counts, and display language\n";
+	cout << "   " << "0. Exit the program\n"; 
+	
+	cout << "Your choice --> ";
+	cin >> userMenuChoice; 
+	cout << endl;
+	
+	//The leters are extracted from the file before the switch statement
+	//Only runs if the choice isn't exit
+	if(userMenuChoice != 0){
+	extractLetters(fileNames, numLetters);
+	}
+	
+	//This switch statement displays the different bits of information. 
+	//The breaks are left out on purpose to reduce the repeated funcitons that are called.
+	switch(userMenuChoice){
+		case 0:
+			exit(-1);
+		case 4: 
+		case 3:
+		case 2: 
+		case 1:
+			displayLetterCount(numLetters, languages);
+		
+	}
 	cout << "Letter Frequency Counts:" <<endl; 
 	
-	displayLetterCount(numLetters, languages);
+	
 	
 	return 0; 
 }
