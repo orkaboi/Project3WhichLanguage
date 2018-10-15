@@ -290,11 +290,19 @@ void orderLetters(int numLetters[][NUM_LANGUAGES]){
     //Iterates through this sorting process for each letter. 
     for(int col = 0; col < NUM_LANGUAGES; col++){
     	int maxCount = numLetters[0][col];    //Set the Largest count to the first element.
-	    int maxIndex = 0;                     //Temporarily holds the value of the index of the most common letter (initialized to the first index
+	    int indexOfMax = 0;                     //Temporarily holds the value of the index of the most common letter (initialized to the first index
 	    
 	    //for each pass of this loop one letter will be put into place. Therefore the loop must iterate NUM_LETTERS times.
 	    for(int numLettersSorted = 0; numLettersSorted < NUM_LETTERS; numLettersSorted++){
-		
+	    	//Iterate through each row to find max
+			for(int row = 0; row < NUM_LETTERS; row++){
+	    		//if the current element of numLetters is bigger than the maxcount it becomes maxCount.
+	    		if(numLetters[row][col] > maxCount){
+	    			maxCount = numLetters[row][col]; 
+	    			indexOfMax = row;
+				}
+			}
+		    
 	    }
 	    
 	}
