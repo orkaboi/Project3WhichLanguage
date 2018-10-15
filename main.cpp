@@ -130,8 +130,9 @@
 #include<cstdlib>
 using namespace std;
 
-const int NUM_LANGUAGES = 8;              //The number of languages. 
-const int NUM_LETTERS = 26;               //The number of letters in the english alphabet.
+const int NUM_LANGUAGES = 8;                                           //The number of languages being tested
+const int NUM_LANGUAGES_WITH_USER_INPUT = NUM_LANGUAGES + 1;           //The number of languages plus one (the one is used for the user input) 
+const int NUM_LETTERS = 26;                                            //The number of letters in the english alphabet.
 	  
 void extractLetters(string[], int[][NUM_LANGUAGES] );
 void countLetters(int[][NUM_LANGUAGES], char, int);
@@ -141,11 +142,11 @@ void displayLetterCount(int[][NUM_LANGUAGES], string[]);
 int main(){
 	                                                                    
 	string languages[] = {"Engl",  "Finn",  "Fren",  "Germ",  "Hung",  "Ital",  "Port",  "Span"};     //The eight languages that this program will test for. 
-	string fileNames[] = {"MacbethEnglish.txt", "MacbethFinnish.txt", "MacbethFrench.txt",      //The names of the files containing all the translations of Macbeth
+	string fileNames[] = {"MacbethEnglish.txt", "MacbethFinnish.txt", "MacbethFrench.txt",            //The names of the files containing all the translations of Macbeth
 				          "MacbethGerman.txt","MacbethHungarian.txt", "MacbethItalian.txt", 
 						  "MacbethPortuguese.txt", "MacbethSpanish.txt"};
 	int numLetters[NUM_LETTERS] [NUM_LANGUAGES];                                                      //Two dimenstional array that holds the language and the letter
-	int userMenuChoice;
+	int userMenuChoice;                                                                               //Holds the user's choice for the start menu
 	
 	
 	//This nested for loop expression initializes all of the contents of numLetters to 0
@@ -155,6 +156,7 @@ int main(){
 		}
 	}
 	
+	//Display the title of the program and the menu options. Get the users choice
 	cout << "Program 3: Which Language" << endl; 
 	cout << endl; 
 	
@@ -169,25 +171,32 @@ int main(){
 	cin >> userMenuChoice; 
 	cout << endl;
 	
-	//The leters are extracted from the file before the switch statement
+	//The leters are extracted from the files before the switch statement that chooses what information to show
 	//Only runs if the choice isn't exit
 	if(userMenuChoice != 0){
 	extractLetters(fileNames, numLetters);
 	}
 	
 	//This switch statement displays the different bits of information. 
-	//The breaks are left out on purpose to reduce the repeated funcitons that are called.
 	switch(userMenuChoice){
 		case 0:
 			exit(-1);
-		case 4: 
-		case 3:
-		case 2: 
+	        break; 
 		case 1:
-			displayLetterCount(numLetters, languages);
+			cout << "Letter Frequency Counts:" <<endl;
+		    displayLetterCount(numLetters, languages);
+		    break;
+		case 2:
+			
+			break;
+		case 3: 
+		    break;
+		case 4:
+			break;
+			
 		
 	}
-	cout << "Letter Frequency Counts:" <<endl; 
+	 
 	
 	
 	
