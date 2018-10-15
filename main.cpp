@@ -302,6 +302,8 @@ void orderLetters(int numLetters[][NUM_LANGUAGES]){
 	    			indexOfMax = row;
 				}
 			}
+			orderedLetters[numLettersSorted] = indexOfMax;
+			numLetters[indexOfMax][col] = -1;     //The value of the max letter is set to 0 so that it is ignored the next loop   
 		    
 	    }
 	    
