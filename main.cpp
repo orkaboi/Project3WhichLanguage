@@ -138,8 +138,8 @@ const int NUM_LETTERS = 26;                                            //The num
 void extractLetters(string[], int[][NUM_LANGUAGES] );
 void countLetters(int[][NUM_LANGUAGES], char, int);
 void displayLetterCount(int[][NUM_LANGUAGES], string[]);
-void orderLetters(int[][NUM_LANGUAGES]);
-
+void sortLetters(int[][NUM_LANGUAGES]);
+void displaySortedLetters(int[][NUM_LANGUAGES], string[]);
 
 int main(){
 	                                                                    
@@ -149,7 +149,7 @@ int main(){
 						  "MacbethPortuguese.txt", "MacbethSpanish.txt"};
 	int numLetters[NUM_LETTERS] [NUM_LANGUAGES];                                                      //Two dimenstional array that holds the language and the letter
 	int userMenuChoice;                                                                               //Holds the user's choice for the start menu
-	//int orderedLetters[NUM_LETTERS][NUM_LANGUAGES];                                                   //Holds the array of sorted letters based on character counts. It is an int because the letter is determined by the index of numLetters
+	                                                
 	
 	
 	//This nested for loop expression initializes all of the contents of numLetters to 0
@@ -180,29 +180,24 @@ int main(){
 	extractLetters(fileNames, numLetters);
 	}
 	
-	//This switch statement displays the different bits of information. 
-	switch(userMenuChoice){
-		case 0:
-			exit(-1);
-	        break; 
-		case 1:
-			cout << "Letter Frequency Counts:" <<endl;
-		    displayLetterCount(numLetters, languages);
-		    break;
-		case 2:
-			
-			break;
-		case 3: 
-		    break;
-		case 4:
-			break;
-			
-		
+	//This series of if statements adds on the different graphs and tables associated with each menu option
+	if(userMenuChoice == 0){
+        exit(-1);
 	}
-	 
 	
+	if(userMenuChoice > 0){
+		cout << "Letter Frequency Counts:\n";
+		displayLetterCount(numLetters, languages);
+		cout << endl;
+	}
 	
-	
+	if(userMenuChoice > 1){
+		cout << "Letter frequency order:\n";
+		sortLetters(numLetters);
+		displaySortedLetters(numLetters, languages);
+	    cout << endl;
+	}
+		
 	return 0; 
 }
 
@@ -284,13 +279,16 @@ void displayLetterCount(int numLetters[][NUM_LANGUAGES], string languages[]){
 * This function examines the counts of the letters and
 * orders them based on frequency. 
 *********************************************************/
-void orderLetters(int numLetters[][NUM_LANGUAGES]){
-	int orderedLetters[num_Letters];          //This array is temporarily used to store the order of the letters before it is copied back into the proprt column of numLetters array
+void sortLetters(int numLetters[][NUM_LANGUAGES]){
+	
+	int orderedLetters[NUM_LETTERS];          //This array is temporarily used to store the order of the letters before it is copied back into the proprt column of numLetters array
+    int maxCount;                            //Set the Largest count to the first element.
+    int indexOfMax;                          //Temporarily holds the value of the index of the most common letter (initialized to the first index
     
-    //Iterates through this sorting process for each letter. 
+	//Iterates through this sorting process for each letter. 
     for(int col = 0; col < NUM_LANGUAGES; col++){
-    	int maxCount = numLetters[0][col];    //Set the Largest count to the first element.
-	    int indexOfMax = 0;                     //Temporarily holds the value of the index of the most common letter (initialized to the first index
+    	maxCount = numLetters[0][col];    
+	    indexOfMax = 0;                    
 	    
 	    //for each pass of this loop one letter will be put into place. Therefore the loop must iterate NUM_LETTERS times.
 	    for(int numLettersSorted = 0; numLettersSorted < NUM_LETTERS; numLettersSorted++){
@@ -303,11 +301,44 @@ void orderLetters(int numLetters[][NUM_LANGUAGES]){
 				}
 			}
 			orderedLetters[numLettersSorted] = indexOfMax;
-			numLetters[indexOfMax][col] = -1;     //The value of the max letter is set to 0 so that it is ignored the next loop   
-		    
+			numLetters[indexOfMax][col] = -1;     //The value of the max letter is set to -1 so that it is ignored the next loop   
+		    maxCount = 0;
 	    }
 	    
+	    //replaces the letter counts in numLetters with the index values of the most frequent letters for each col
+	    for(int i = 0; i < NUM_LETTERS; i++){
+	    	numLetters[i][col] = orderedLetters[i];
+		}
 	}
-    
-
 }
+
+/***********************************************************************************
+*  After the letters are ordered based on frequency, this funciton displays them
+*  NOTE: it uses the same numberArray as before ,but now it holds the index of the most 
+*  frequent letters (which happens to be the distance from 'A'. This function MUST be run after 
+*  orderLetters in order to work correctly
+*
+**********************************************************************************/
+void displaySortedLetters(int numLetters[][NUM_LANGUAGES], string languages[]){
+	//The first language header is displayed first to get the width right
+	cout << setw(9) << languages[0];
+	
+	//Each header is displayed
+	for(int i = 1;i < NUM_LANGUAGES; i++){
+		cout << setw(6) << languages[i];
+	}
+	cout << endl;
+	
+	//displays the letter and the number of letters counted for each language
+	for(int row = 0; row < (NUM_LETTERS); row ++){
+		
+		//These three spaces are so that the values line up better but still have width 6
+	    cout << "   ";
+	    
+		for(int col = 0; col < (NUM_LANGUAGES); col++){
+			cout << setw(6) << (char)(numLetters[row][col] + 'A');
+		}
+		cout << endl;
+	}
+}
+
