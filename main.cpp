@@ -78,13 +78,11 @@
 				Z     Z     K     Q     X     J     K     K
 
 		Copy and paste a paragraph of text to be analyzed, followed by ^z (PC) or ^d (Mac): 
-		Ma per arrivare a un agreement bisogna essere in due. E dato che il governo intende 
-		resistere sui numeri della manovra, Ã¨ necessario offrire garanzie allâ€™Europa e ai 
-		mercati. PerciÃ² sono stati stabiliti due capisaldi: uno tecnico, lâ€™altro piÃ¹ politico. 
-		La riduzione strutturale del debito viene fissato come un Â«obiettivo strategicoÂ», 
-		non a caso sottolineato da Di Maio dopo il vertice. La linea dellâ€™esecutivo Ã¨ che 
-		per far ripartire lâ€™Italia sia necessario Â«cambiare approccioÂ» con una manovra 
-		espansiva Â«dopo anni di cure rigoriste senza risultatiÂ», ma s
+		Ma per arrivare a un agreement bisogna essere in due. E dato che il governo intende resistere sui numeri della manovra, è
+		necessario offrire garanzie all’Europa e ai mercati. Perciò sono stati stabiliti due capisaldi: uno tecnico, l’altro più
+		politico. La riduzione strutturale del debito viene fissato come un «obiettivo strategico», non a caso sottolineato da Di
+		Maio dopo il vertice. La linea dell’esecutivo è che per far ripartire l’Italia sia necessario «cambiare approccio» con una
+		manovra espansiva «dopo anni di cure rigoriste senza risultati», ma s
 
 		A:51 B:5 C:20 D:15 E:55 F:4 G:6 H:2 I:54 J:0 K:0 L:22 M:10 N:29 O:39 P:13 Q:0 R:37 S:28 T:31 U:15 V:9 W:0 X:0 Y:0 Z:3 
 
@@ -140,7 +138,7 @@ void countLetters(int[][NUM_LANGUAGES], char, int);
 void displayLetterCount(int[][NUM_LANGUAGES], string[]);
 void sortLetters(int[][NUM_LANGUAGES]);
 void displaySortedLetters(int[][NUM_LANGUAGES], string[], bool includeUserData = false);
-void getAndCountUserData(int[][NUM_LANGUAGES])
+void getAndProcessUserData(int[][NUM_LANGUAGES]);
 
 int main(){
 	                                                                    
@@ -203,7 +201,15 @@ int main(){
 	
 	//Stage 3
 	if(userMenuChoice > 2){
+		cout << "Copy and paste a paragraph of text to be analyzed, followed by ^z (PC) or ^d (Mac):\n";
+		
+		//Count the inputted userData
+		getAndProcessUserData(numLetters);
+		
+		//Display the ordered Letters with the user Letters column
+		cout << "Letter frequency order:\n";
 		displaySortedLetters(numLetters, languages, true);
+		cout << endl;
 	}
 	
 	//Stage 4
@@ -370,9 +376,21 @@ void displaySortedLetters(int numLetters[][NUM_LANGUAGES], string languages[], b
 /***********************************************
 * This function asks for user input and displays 
 * the letter counts and orders the letters based 
-* on frequency
+* on frequency. It also outputs the letter counts
+* and runs a smaller version of the sortLetters
+* function.
 ***********************************************/
-void getAndCountUserData (int numLetters[][NUM_LANGUAGES]){
+void getAndProcessUserData (int numLetters[][NUM_LANGUAGES]){
 	char letter = ' ';   //temporarily holds the user input letter
 	
+	//Get the letter counts
+	while(cin >> letter){
+		countLetters(numLetters, letter, (NUM_LANGUAGES - 1));
+	}
+	
+	//Print out the character counts
+    for(int i = 0; i < NUM_LETTERS; i++){
+	    cout << (char)(i + 'A') << ": " << numLetters[i][NUM_LANGUAGES-1] << " ";
+	}
+	cout << endl;
 }
