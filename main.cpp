@@ -140,16 +140,16 @@ void countLetters(int[][NUM_LANGUAGES], char, int);
 void displayLetterCount(int[][NUM_LANGUAGES], string[]);
 void sortLetters(int[][NUM_LANGUAGES]);
 void displaySortedLetters(int[][NUM_LANGUAGES], string[], bool includeUserData = false);
-//void getUserData()
+void getAndCountUserData(int[][NUM_LANGUAGES])
 
 int main(){
 	                                                                    
 	string languages[] = {"Engl",  "Finn",  "Fren",  "Germ",  "Hung",  "Ital",  "Port",  "Span", "User"};     //The eight languages that this program will test for. 
-	string fileNames[] = {"MacbethEnglish.txt", "MacbethFinnish.txt", "MacbethFrench.txt",            //The names of the files containing all the translations of Macbeth
+	string fileNames[] = {"MacbethEnglish.txt", "MacbethFinnish.txt", "MacbethFrench.txt",                    //The names of the files containing all the translations of Macbeth
 				          "MacbethGerman.txt","MacbethHungarian.txt", "MacbethItalian.txt", 
 						  "MacbethPortuguese.txt", "MacbethSpanish.txt"};
-	int numLetters[NUM_LETTERS] [NUM_LANGUAGES];                                                      //Two dimenstional array that holds the language and the letter
 	int userMenuChoice;                                                                               //Holds the user's choice for the start menu
+	int userMenuChoice;                                                                                       //Holds the user's choice for the start menu
 	                                                
 	
 	
@@ -359,10 +359,20 @@ void displaySortedLetters(int numLetters[][NUM_LANGUAGES], string languages[], b
 		//These three spaces are so that the values line up better but still have width 6
 	    cout << "   ";
 	    
-		for(int col = 0; col < (numCol); col++){
+		for(int col = 0; col < numCol; col++){
 			cout << setw(6) << (char)(numLetters[row][col] + 'A');
 		}
 		cout << endl;
 	}
 }
 
+
+/***********************************************
+* This function asks for user input and displays 
+* the letter counts and orders the letters based 
+* on frequency
+***********************************************/
+void getAndCountUserData (int numLetters[][NUM_LANGUAGES]){
+	char letter = ' ';   //temporarily holds the user input letter
+	
+}
