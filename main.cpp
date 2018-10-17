@@ -130,8 +130,8 @@
 #include<cstdlib>
 using namespace std;
 
-const int NUM_LANGUAGES = 8;                                           //The number of languages being tested
-const int NUM_LANGUAGES_WITH_USER_INPUT = NUM_LANGUAGES + 1;           //The number of languages plus one (the one is used for the user input) 
+const int NUM_LANGUAGES = 9;                                           //The number of languages being tested NOTE: This includes the user input col
+//const int NUM_LANGUAGES_WITH_USER_INPUT = NUM_LANGUAGES + 1;          //The number of languages plus one (the one is used for the user input) 
 const int NUM_LETTERS = 26;                                            //The number of letters in the english alphabet.
 
 //NOTE: descriptions are above function names in definitions. 	  
@@ -139,11 +139,12 @@ void extractLetters(string[], int[][NUM_LANGUAGES] );
 void countLetters(int[][NUM_LANGUAGES], char, int);
 void displayLetterCount(int[][NUM_LANGUAGES], string[]);
 void sortLetters(int[][NUM_LANGUAGES]);
-void displaySortedLetters(int[][NUM_LANGUAGES], string[]);
+void displaySortedLetters(int[][NUM_LANGUAGES], string[], bool includeUserData = false);
+//void getUserData()
 
 int main(){
 	                                                                    
-	string languages[] = {"Engl",  "Finn",  "Fren",  "Germ",  "Hung",  "Ital",  "Port",  "Span"};     //The eight languages that this program will test for. 
+	string languages[] = {"Engl",  "Finn",  "Fren",  "Germ",  "Hung",  "Ital",  "Port",  "Span", "User"};     //The eight languages that this program will test for. 
 	string fileNames[] = {"MacbethEnglish.txt", "MacbethFinnish.txt", "MacbethFrench.txt",            //The names of the files containing all the translations of Macbeth
 				          "MacbethGerman.txt","MacbethHungarian.txt", "MacbethItalian.txt", 
 						  "MacbethPortuguese.txt", "MacbethSpanish.txt"};
@@ -185,17 +186,29 @@ int main(){
         exit(-1);
 	}
 	
+	//Stage 1
 	if(userMenuChoice > 0){
 		cout << "Letter Frequency Counts:\n";
 		displayLetterCount(numLetters, languages);
 		cout << endl;
 	}
 	
+	//Stage 2
 	if(userMenuChoice > 1){
 		cout << "Letter frequency order:\n";
 		sortLetters(numLetters);
 		displaySortedLetters(numLetters, languages);
 	    cout << endl;
+	}
+	
+	//Stage 3
+	if(userMenuChoice > 2){
+		displaySortedLetters(numLetters, languages, true);
+	}
+	
+	//Stage 4
+	if(userMenuChoice > 3){
+		
 	}
 		
 	return 0; 
@@ -214,7 +227,7 @@ void extractLetters(string fileName[], int numLetters[][NUM_LANGUAGES]){
 	ifstream extract;                //The name of the stream of data from each file
 	
 	//This loop is used to iterate each language file name. For each fileName it will open the file, count the characters, and close the file stream
-	for(int langIndexVal = 0; langIndexVal < (NUM_LANGUAGES); langIndexVal++ ){
+	for(int langIndexVal = 0; langIndexVal < (NUM_LANGUAGES - 1); langIndexVal++ ){
 	
 	   //Open the file stream 
 	   extract.open(fileName[langIndexVal].c_str());
@@ -260,7 +273,7 @@ void displayLetterCount(int numLetters[][NUM_LANGUAGES], string languages[]){
 	cout << setw(9) << languages[0];
 	
 	//Each header is displayed
-	for(int i = 1;i < NUM_LANGUAGES; i++){
+	for(int i = 1;i < (NUM_LANGUAGES - 1); i++){
 		cout << setw(6) << languages[i];
 	}
 	cout << endl;
@@ -268,7 +281,7 @@ void displayLetterCount(int numLetters[][NUM_LANGUAGES], string languages[]){
 	//displays the letter and the number of letters counted for each language
 	for(int row = 0; row < (NUM_LETTERS); row ++){
 		cout << (char)(row+'A') << ": ";
-		for(int col = 0; col < (NUM_LANGUAGES); col++){
+		for(int col = 0; col < (NUM_LANGUAGES - 1); col++){
 			cout << setw(6) << numLetters[row][col];
 		}
 		cout << endl;
@@ -286,7 +299,7 @@ void sortLetters(int numLetters[][NUM_LANGUAGES]){
     int indexOfMax;                          //Temporarily holds the value of the index of the most common letter (initialized to the first index
     
 	//Iterates through this sorting process for each letter. 
-    for(int col = 0; col < NUM_LANGUAGES; col++){
+    for(int col = 0; col < (NUM_LANGUAGES - 1); col++){
     	maxCount = numLetters[0][col];    
 	    indexOfMax = 0;                    
 	    
@@ -318,13 +331,24 @@ void sortLetters(int numLetters[][NUM_LANGUAGES]){
 *  frequent letters (which happens to be the distance from 'A'. This function MUST be run after 
 *  orderLetters in order to work correctly
 *
+* NOTE: includeUserData has a default value of false. If true is passed in the function will include
+*       The user data in the output of the sorted letters.
 **********************************************************************************/
-void displaySortedLetters(int numLetters[][NUM_LANGUAGES], string languages[]){
+void displaySortedLetters(int numLetters[][NUM_LANGUAGES], string languages[], bool includeUserData){
+	
+	//set the number of columns equal to the number of languages. not including the user data
+	int numCol = NUM_LANGUAGES - 1;
+	
+	//If true is passed into the function the number of columns is equal to the number of languages. This means that userData will be included.
+	if(includeUserData){
+        numCol = NUM_LANGUAGES;
+	}
 	//The first language header is displayed first to get the width right
 	cout << setw(9) << languages[0];
 	
+	
 	//Each header is displayed
-	for(int i = 1;i < NUM_LANGUAGES; i++){
+	for(int i = 1;i < numCol; i++){
 		cout << setw(6) << languages[i];
 	}
 	cout << endl;
@@ -335,7 +359,7 @@ void displaySortedLetters(int numLetters[][NUM_LANGUAGES], string languages[]){
 		//These three spaces are so that the values line up better but still have width 6
 	    cout << "   ";
 	    
-		for(int col = 0; col < (NUM_LANGUAGES); col++){
+		for(int col = 0; col < (numCol); col++){
 			cout << setw(6) << (char)(numLetters[row][col] + 'A');
 		}
 		cout << endl;
