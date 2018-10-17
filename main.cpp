@@ -148,7 +148,7 @@ int main(){
 	string fileNames[] = {"MacbethEnglish.txt", "MacbethFinnish.txt", "MacbethFrench.txt",                    //The names of the files containing all the translations of Macbeth
 				          "MacbethGerman.txt","MacbethHungarian.txt", "MacbethItalian.txt", 
 						  "MacbethPortuguese.txt", "MacbethSpanish.txt"};
-	int userMenuChoice;                                                                               //Holds the user's choice for the start menu
+	int numLetters[NUM_LETTERS] [NUM_LANGUAGES];                                                              //Two dimenstional array that holds the language and the letter
 	int userMenuChoice;                                                                                       //Holds the user's choice for the start menu
 	                                                
 	
